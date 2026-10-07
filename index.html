@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HERA | Business, Aesthetics & High-End Luxury</title>
+    <meta name="description" content="HERA is the premier digital luxury magazine exploring high-end finance, architecture, independent watchmaking, and executive lifestyle through a sophisticated yuppie lens.">
+    <meta name="keywords" content="luxury magazine, business, high-end living, yuppie lifestyle, architecture, fine watchmaking, private equity">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        hera: {
+                            bg: '#0a0a0a',
+                            surface: '#121212',
+                            surfaceLight: '#1a1a1a',
+                            gold: '#C5A059',
+                            goldLight: '#E3C588',
+                            goldDark: '#997A3C',
+                            ivory: '#F4F4F6',
+                            muted: '#9a9a9a'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #F4F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #E3C588 0%, #C5A059 50%, #997A3C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border {
+            border-color: rgba(197, 160, 89, 0.25);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-hera-gold selection:text-black">
+
+    <!-- Splash Language Gate -->
+    <div id="splash-gate" class="fixed inset-0 z-50 bg-[#0a0a0a] flex flex-col items-center justify-between p-8 lg:p-16 transition-opacity duration-700">
+        <div class="text-center pt-8">
+            <h1 class="text-3xl md:text-4xl font-serif tracking-[0.4em] font-light text-hera-ivory">H E R A</h1>
+            <div class="w-12 h-[1px] bg-hera-gold mx-auto mt-4 opacity-70"></div>
+        </div>
+
+        <div class="max-w-3xl w-full text-center my-auto px-4">
+            <span class="text-xs uppercase tracking-[0.35em] text-hera-gold block mb-6 font-medium">
+                Select your language / Seleccione idioma / 选择语言
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-serif text-hera-ivory mb-12 leading-snug">
+                The pulse of new executive luxury
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                <button onclick="selectGlobalLanguage('en')" class="py-5 px-6 border border-hera-gold/50 bg-hera-surface hover:bg-hera-gold hover:text-black text-hera-ivory text-xs uppercase tracking-[0.3em] font-medium transition-all duration-300 flex items-center justify-center space-x-2 group">
+                    <span>English</span>
+                    <span class="text-hera-gold group-hover:text-black">&rarr;</span>
+                </button>
+                <button onclick="selectGlobalLanguage('es')" class="py-5 px-6 border border-hera-gold/50 bg-hera-surface hover:bg-hera-gold hover:text-black text-hera-ivory text-xs uppercase tracking-[0.3em] font-medium transition-all duration-300 flex items-center justify-center space-x-2 group">
+                    <span>Castellano</span>
+                    <span class="text-hera-gold group-hover:text-black">&rarr;</span>
+                </button>
+                <button onclick="selectGlobalLanguage('zh')" class="py-5 px-6 border border-hera-gold/50 bg-hera-surface hover:bg-hera-gold hover:text-black text-hera-ivory text-xs uppercase tracking-[0.3em] font-medium transition-all duration-300 flex items-center justify-center space-x-2 group">
+                    <span>中文</span>
+                    <span class="text-hera-gold group-hover:text-black">&rarr;</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="text-[10px] text-hera-muted uppercase tracking-[0.3em] text-center">
+            &copy; 2026 HERA Media Group. Business, Aesthetics & High-End Living.
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="main-app" class="opacity-0 transition-opacity duration-700 hidden">
+
+        <!-- Navigation Bar -->
+        <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-hera-bg/90 backdrop-blur-md border-b gold-border">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="#" class="text-2xl md:text-3xl font-serif tracking-[0.3em] font-bold text-hera-ivory hover:text-hera-gold transition-colors">
+                    H E R A
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-10 text-xs font-medium tracking-[0.25em] uppercase text-hera-muted">
+                    <a href="#capital" data-i18n="nav_capital" class="hover:text-hera-gold transition-colors">Capital</a>
+                    <a href="#architecture" data-i18n="nav_arch" class="hover:text-hera-gold transition-colors">Architecture</a>
+                    <a href="#velocity" data-i18n="nav_vel" class="hover:text-hera-gold transition-colors">Velocity</a>
+                    <a href="#horizon" data-i18n="nav_hor" class="hover:text-hera-gold transition-colors">Horizon</a>
+                </nav>
+
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center space-x-2 border border-hera-gold/40 px-3 py-1.5 bg-hera-surface text-xs tracking-widest">
+                        <button onclick="switchLanguage('en')" id="btn-en" class="text-hera-gold font-semibold uppercase">EN</button>
+                        <span class="text-hera-muted">/</span>
+                        <button onclick="switchLanguage('es')" id="btn-es" class="text-hera-muted uppercase hover:text-hera-gold">ES</button>
+                        <span class="text-hera-muted">/</span>
+                        <button onclick="switchLanguage('zh')" id="btn-zh" class="text-hera-muted uppercase hover:text-hera-gold">中文</button>
+                    </div>
+
+                    <button onclick="openModal()" data-i18n="btn_membership" class="hidden sm:inline-flex text-xs uppercase tracking-[0.25em] font-medium px-6 py-3 rounded-none border border-hera-gold text-hera-gold hover:bg-hera-gold hover:text-black transition-all duration-300">
+                        Membership
+                    </button>
+
+                    <button id="menu-btn" class="lg:hidden text-hera-ivory hover:text-hera-gold p-2" aria-label="Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden lg:hidden bg-hera-surface border-b gold-border px-8 py-8 space-y-6">
+                <a href="#capital" data-i18n="nav_capital" class="block text-xs uppercase tracking-[0.25em] text-hera-ivory hover:text-hera-gold">Capital</a>
+                <a href="#architecture" data-i18n="nav_arch" class="block text-xs uppercase tracking-[0.25em] text-hera-ivory hover:text-hera-gold">Architecture</a>
+                <a href="#velocity" data-i18n="nav_vel" class="block text-xs uppercase tracking-[0.25em] text-hera-ivory hover:text-hera-gold">Velocity</a>
+                <a href="#horizon" data-i18n="nav_hor" class="block text-xs uppercase tracking-[0.25em] text-hera-ivory hover:text-hera-gold">Horizon</a>
+                <button onclick="openModal()" data-i18n="btn_membership" class="w-full mt-4 text-xs uppercase tracking-[0.25em] font-medium py-3.5 border border-hera-gold text-hera-gold hover:bg-hera-gold hover:text-black">
+                    Executive Membership
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="pt-40 pb-28 md:pt-56 md:pb-40 px-6 lg:px-12 border-b gold-border relative overflow-hidden">
+            <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
+            <div class="max-w-6xl mx-auto text-center relative z-10">
+                <span data-i18n="hero_badge" class="inline-block text-xs uppercase tracking-[0.35em] text-hera-gold mb-8 font-semibold border-b border-hera-gold/40 pb-3">
+                    Vol. I — Issue 01 • Inaugural Edition
+                </span>
+                <h1 data-i18n="hero_title" class="text-4xl sm:text-6xl md:text-8xl font-serif font-normal tracking-wide text-hera-ivory mb-10 leading-[1.1]">
+                    The pulse of new <span class="gold-gradient-text italic font-serif">executive luxury</span>.
+                </h1>
+                <p data-i18n="hero_subtitle" class="text-base sm:text-xl md:text-2xl text-hera-muted max-w-3xl mx-auto font-light leading-relaxed mb-16">
+                    Author architecture, high-level governance, precision collectorship, and daily living viewed through the lens of intellectual rigor and sober aesthetics.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="#articulos" data-i18n="hero_btn_explore" class="w-full sm:w-auto px-10 py-5 bg-hera-gold text-black text-xs uppercase tracking-[0.3em] font-medium hover:bg-hera-goldLight transition-all">
+                        Explore Issue
+                    </a>
+                    <a href="#manifiesto-texto" data-i18n="hero_btn_manifesto" class="w-full sm:w-auto px-10 py-5 border border-hera-ivory/25 text-hera-ivory text-xs uppercase tracking-[0.3em] font-medium hover:border-hera-gold hover:text-hera-gold transition-all">
+                        Read Manifesto
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manifesto Statement -->
+        <section id="manifiesto-texto" class="py-32 px-6 lg:px-12 bg-hera-surface/40 border-b gold-border">
+            <div class="max-w-4xl mx-auto text-center">
+                <span data-i18n="manifiesto_tag" class="text-xs uppercase tracking-[0.35em] text-hera-gold mb-6 block">HERA Manifesto</span>
+                <blockquote data-i18n="manifiesto_quote" class="text-2xl sm:text-4xl font-serif text-hera-ivory italic leading-relaxed mb-10">
+                    “In a hyper-connected and noisy world, true luxury is the silence of flawless strategy, noble materiality, and the absolute mastery of time.”
+                </blockquote>
+                <p data-i18n="manifiesto_author" class="text-xs tracking-[0.3em] uppercase text-hera-muted">— HERA Editorial Board</p>
+            </div>
+        </section>
+
+        <!-- Main Articles Grid -->
+        <main id="articulos" class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 pb-8 border-b gold-border">
+                <div>
+                    <span data-i18n="grid_badge" class="text-xs uppercase tracking-[0.35em] text-hera-gold font-medium block mb-3">Analytical Summary</span>
+                    <h2 data-i18n="grid_title" class="text-3xl sm:text-5xl font-serif text-hera-ivory">The 7 Inaugural Pieces</h2>
+                </div>
+                <p data-i18n="grid_subtitle" class="text-xs uppercase tracking-[0.25em] text-hera-muted mt-4 md:mt-0">Curated Monthly Issue</p>
+            </div>
+
+            <!-- Section 1: CAPITAL -->
+            <div id="capital" class="mb-32 pt-8">
+                <div class="flex items-center space-x-6 mb-16">
+                    <span data-i18n="sec_capital" class="text-xs uppercase tracking-[0.35em] text-hera-gold font-bold">01 / Capital & Strategy</span>
+                    <div class="flex-1 h-[1px] bg-hera-gold/25"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <article class="lg:col-span-7 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-80 sm:h-96 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Capital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1200x800/121212/C5A059?text=HERA+Capital'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_1_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">C-Level Analysis</span>
+                        </div>
+                        <div class="p-8 lg:p-12 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_1">By Victoria Sterling</span>
+                                    <span class="text-xs text-hera-gold">8 min read</span>
+                                </div>
+                                <h3 data-i18n="art_1_title" class="text-3xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-6 leading-snug">
+                                    The new map of venture capital and corporate sovereignty in the global cycle
+                                </h3>
+                                <p data-i18n="art_1_desc" class="text-base text-hera-muted font-light leading-relaxed mb-8">
+                                    How high-end investment funds are reconfiguring portfolios toward tangible assets and sovereign technology amidst international macro volatility.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="global_edition">Global Edition</span>
+                                <button onclick="openArticle('capital-1')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="read_essay">Read Essay</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lg:col-span-5 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-64 sm:h-72 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1000&auto=format&fit=crop" alt="Private Equity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1000x700/121212/C5A059?text=HERA+Private+Equity'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_2_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">Executive Brief</span>
+                        </div>
+                        <div class="p-8 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_2">By Marc Laurent</span>
+                                    <span class="text-xs text-hera-gold">5 min read</span>
+                                </div>
+                                <h3 data-i18n="art_2_title" class="text-2xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-4 leading-snug">
+                                    Alternative safe havens: The rise of private equity in fine art
+                                </h3>
+                                <p data-i18n="art_2_desc" class="text-sm text-hera-muted font-light leading-relaxed mb-6">
+                                    A tactical breakdown of why family offices are steering capital toward museum-grade pieces and private markets.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="markets">Markets</span>
+                                <button onclick="openArticle('capital-2')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="read_brief">Read Brief</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Section 2: ARCHITECTURE & HABITAT -->
+            <div id="architecture" class="mb-32 pt-8">
+                <div class="flex items-center space-x-6 mb-16">
+                    <span data-i18n="sec_arch" class="text-xs uppercase tracking-[0.35em] text-hera-gold font-bold">02 / Architecture & Habitat</span>
+                    <div class="flex-1 h-[1px] bg-hera-gold/25"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <article class="lg:col-span-5 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-64 sm:h-72 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1000x700/121212/C5A059?text=HERA+Architecture'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_3_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">Residential Design</span>
+                        </div>
+                        <div class="p-8 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_3">By Sofia von Berg</span>
+                                    <span class="text-xs text-hera-gold">6 min read</span>
+                                </div>
+                                <h3 data-i18n="art_3_title" class="text-2xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-4 leading-snug">
+                                    Brutalist minimalism: Residences that converse with void and matter
+                                </h3>
+                                <p data-i18n="art_3_desc" class="text-sm text-hera-muted font-light leading-relaxed mb-6">
+                                    A visual immersion through new sanctuaries in board-formed concrete and dark woods designed for executive isolation.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="spaces">Spaces</span>
+                                <button onclick="openArticle('arch-1')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="explore">Explore</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lg:col-span-7 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-80 sm:h-96 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop" alt="Domotica" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1200x800/121212/C5A059?text=HERA+Smart+Living'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_4_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">Invisible Domotics</span>
+                        </div>
+                        <div class="p-8 lg:p-12 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_4">By Julian Vance</span>
+                                    <span class="text-xs text-hera-gold">5 min read</span>
+                                </div>
+                                <h3 data-i18n="art_4_title" class="text-3xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-6 leading-snug">
+                                    Unseen domotics: Absolute technological integration in high-end homes
+                                </h3>
+                                <p data-i18n="art_4_desc" class="text-base text-hera-muted font-light leading-relaxed mb-8">
+                                    When architectural acoustics, circadian lighting, and biometric security operate in absolute silent synchrony without intrusive interfaces.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="innovation">Innovation</span>
+                                <button onclick="openArticle('arch-2')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="read_report">Read Report</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Section 3: VELOCITY & ASSETS -->
+            <div id="velocity" class="mb-32 pt-8">
+                <div class="flex items-center space-x-6 mb-16">
+                    <span data-i18n="sec_vel" class="text-xs uppercase tracking-[0.35em] text-hera-gold font-bold">03 / Velocity & Assets</span>
+                    <div class="flex-1 h-[1px] bg-hera-gold/25"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <article class="lg:col-span-6 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-72 sm:h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1000&auto=format&fit=crop" alt="Watches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1000x700/121212/C5A059?text=HERA+Horology'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_5_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">Fine Watchmaking</span>
+                        </div>
+                        <div class="p-8 lg:p-10 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_5">By Antoine de Saint-Claire</span>
+                                    <span class="text-xs text-hera-gold">7 min read</span>
+                                </div>
+                                <h3 data-i18n="art_5_title" class="text-2xl sm:text-3xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-4 leading-snug">
+                                    The mechanical renaissance: Why independent calibers surpass serialization
+                                </h3>
+                                <p data-i18n="art_5_desc" class="text-sm sm:text-base text-hera-muted font-light leading-relaxed mb-6">
+                                    An intimate look inside independent watchmaking workshops in Geneva and the Vallée de Joux where every timepiece is an incalculable store of value.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="collectorship">Collectorship</span>
+                                <button onclick="openArticle('vel-1')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="see_details">See Details</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="lg:col-span-6 group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500 flex flex-col justify-between">
+                        <div class="relative h-72 sm:h-80 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop" alt="Cars" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1000x700/121212/C5A059?text=HERA+Velocity'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-transparent to-transparent"></div>
+                            <span data-i18n="art_6_badge" class="absolute top-6 left-6 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3 py-1 font-semibold">Author Engineering</span>
+                        </div>
+                        <div class="p-8 lg:p-10 flex flex-col justify-between flex-1">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_6">By Gabriel K.</span>
+                                    <span class="text-xs text-hera-gold">6 min read</span>
+                                </div>
+                                <h3 data-i18n="art_6_title" class="text-2xl sm:text-3xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-4 leading-snug">
+                                    Electric restomods and ultra-limited supercars: Redefining the myth
+                                </h3>
+                                <p data-i18n="art_6_desc" class="text-sm sm:text-base text-hera-muted font-light leading-relaxed mb-6">
+                                    Classic engineering fused with high-performance electric propulsion built specifically for collectors demanding strict numerical exclusivity.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-hera-ivory/10 flex items-center justify-between">
+                                <span class="text-xs tracking-[0.2em] text-hera-ivory uppercase" data-i18n="performance">Performance</span>
+                                <button onclick="openArticle('vel-2')" class="text-xs uppercase tracking-[0.25em] text-hera-gold group-hover:translate-x-2 transition-transform inline-flex items-center font-medium">
+                                    <span data-i18n="discover_pieces">Discover Pieces</span> &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Section 4: HORIZON -->
+            <div id="horizon" class="pt-8">
+                <div class="flex items-center space-x-6 mb-16">
+                    <span data-i18n="sec_hor" class="text-xs uppercase tracking-[0.35em] text-hera-gold font-bold">04 / Horizon</span>
+                    <div class="flex-1 h-[1px] bg-hera-gold/25"></div>
+                </div>
+
+                <article class="group bg-hera-surface border gold-border overflow-hidden hover:border-hera-gold transition-all duration-500">
+                    <div class="relative h-96 sm:h-[450px] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop" alt="Horizon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" onerror="this.src='https://placehold.co/1600x900/121212/C5A059?text=HERA+Horizon'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-hera-surface via-hera-surface/40 to-transparent"></div>
+                        <span data-i18n="art_7_badge" class="absolute top-8 left-8 text-[10px] uppercase tracking-[0.25em] text-black bg-hera-gold px-3.5 py-1.5 font-semibold">Immersive Ultra-Luxury</span>
+                    </div>
+                    <div class="p-8 sm:p-14 lg:p-16 flex flex-col lg:flex-row lg:items-center justify-between gap-10 -mt-24 relative z-10 bg-hera-surface/90 backdrop-blur-md border-t gold-border mx-4 sm:mx-8 mb-8">
+                        <div class="max-w-3xl">
+                            <div class="flex items-center space-x-6 mb-4">
+                                <span class="text-xs text-hera-muted uppercase tracking-widest" data-i18n="author_7">By Elena Rostova</span>
+                                <span class="text-xs text-hera-gold">10 min read</span>
+                            </div>
+                            <h3 data-i18n="art_7_title" class="text-3xl sm:text-4xl font-serif text-hera-ivory group-hover:text-hera-gold transition-colors mb-6 leading-snug">
+                                The new sanctuary of privacy: Sonic retreats and radical alpine architecture
+                            </h3>
+                            <p data-i18n="art_7_desc" class="text-base sm:text-lg text-hera-muted font-light leading-relaxed">
+                                An experiential report on ultra-luxury isolation, where complete digital disconnection has become the most coveted asset among global leaders.
+                            </p>
+                        </div>
+                        <div>
+                            <button onclick="openArticle('hor-1')" class="px-10 py-5 bg-hera-gold text-black text-xs uppercase tracking-[0.3em] font-medium hover:bg-hera-goldLight transition-all whitespace-nowrap">
+                                <span data-i18n="start_journey">Start Journey</span> &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Minimal Footer -->
+        <footer class="bg-hera-surface border-t gold-border py-12 px-6 lg:px-12 mt-32">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                <div>
+                    <h2 class="text-lg font-serif tracking-[0.3em] text-hera-ivory mb-1">H E R A</h2>
+                    <p class="text-[10px] text-hera-muted uppercase tracking-[0.2em]" data-i18n="footer_sub">Business, Aesthetics & High-End Living</p>
+                </div>
+                <div class="flex items-center space-x-8 text-[11px] uppercase tracking-[0.25em] text-hera-muted">
+                    <a href="#capital" class="hover:text-hera-gold transition-colors" data-i18n="nav_capital">Capital</a>
+                    <a href="#architecture" class="hover:text-hera-gold transition-colors" data-i18n="nav_arch">Architecture</a>
+                    <a href="#velocity" class="hover:text-hera-gold transition-colors" data-i18n="nav_vel">Velocity</a>
+                    <a href="#horizon" class="hover:text-hera-gold transition-colors" data-i18n="nav_hor">Horizon</a>
+                </div>
+                <div class="text-[10px] text-hera-muted uppercase tracking-[0.3em]">
+                    &copy; 2026 HERA Media. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+        <!-- Subscription Modal -->
+        <div id="subModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm hidden px-4">
+            <div class="bg-hera-surface border gold-border max-w-md w-full p-8 sm:p-10 relative">
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-hera-muted hover:text-hera-ivory text-2xl">&times;</button>
+                <div class="text-center mb-8">
+                    <span data-i18n="modal_tag" class="text-xs uppercase tracking-[0.35em] text-hera-gold block mb-3">Exclusive Membership</span>
+                    <h3 data-i18n="modal_title" class="text-2xl font-serif text-hera-ivory">HERA Executive Club</h3>
+                    <p data-i18n="modal_desc" class="text-xs text-hera-muted mt-3 leading-relaxed">Receive private briefings and collector editions directly in your inbox.</p>
+                </div>
+                <form onsubmit="handleSubscribe(event)" class="space-y-5">
+                    <div>
+                        <input type="email" required placeholder="executive@enterprise.com" class="w-full px-5 py-4 bg-hera-bg border gold-border text-hera-ivory placeholder-hera-muted text-xs focus:outline-none focus:border-hera-gold">
+                    </div>
+                    <button type="submit" data-i18n="modal_btn" class="w-full py-4 bg-hera-gold text-black text-xs uppercase tracking-[0.25em] font-medium hover:bg-hera-goldLight transition-colors">
+                        Request Access
+                    </button>
+                </form>
+                <div id="successMsg" class="hidden mt-6 text-center text-xs text-hera-gold uppercase tracking-[0.2em]" data-i18n="modal_success">
+                    Access requested successfully. Welcome to HERA.
+                </div>
+            </div>
+        </div>
+
+        <!-- Article Reader Modal (with in-article language switcher) -->
+        <div id="articleModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md hidden overflow-y-auto px-4 py-12">
+            <div class="bg-hera-surface border gold-border max-w-4xl w-full p-8 sm:p-14 relative my-auto">
+                <div class="flex items-center justify-between mb-8 pb-6 border-b gold-border">
+                    <div class="flex items-center space-x-3 text-xs uppercase tracking-widest text-hera-gold">
+                        <span id="modal-category">Capital</span>
+                        <span>•</span>
+                        <span id="modal-readtime">8 min read</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-1 border border-hera-gold/40 px-2.5 py-1 bg-hera-bg text-xs tracking-widest">
+                            <button onclick="setArticleLang('en')" id="art-lang-en" class="text-hera-gold font-semibold uppercase px-1">EN</button>
+                            <span class="text-hera-muted">/</span>
+                            <button onclick="setArticleLang('es')" id="art-lang-es" class="text-hera-muted uppercase hover:text-hera-gold px-1">ES</button>
+                            <span class="text-hera-muted">/</span>
+                            <button onclick="setArticleLang('zh')" id="art-lang-zh" class="text-hera-muted uppercase hover:text-hera-gold px-1">中文</button>
+                        </div>
+                        <button onclick="closeArticleModal()" class="text-hera-muted hover:text-hera-ivory text-3xl font-light">&times;</button>
+                    </div>
+                </div>
+
+                <h2 id="modal-article-title" class="text-3xl sm:text-5xl font-serif text-hera-ivory mb-6 leading-tight"></h2>
+                <p id="modal-article-author" class="text-xs uppercase tracking-[0.25em] text-hera-gold mb-10 pb-6 border-b border-hera-ivory/10"></p>
+                
+                <div class="relative h-72 sm:h-96 mb-10 overflow-hidden border gold-border">
+                    <img id="modal-article-img" src="" alt="Article Image" class="w-full h-full object-cover opacity-90">
+                </div>
+
+                <div id="modal-article-body" class="space-y-6 text-hera-ivory font-light leading-relaxed text-base sm:text-lg"></div>
+
+                <div class="mt-16 pt-8 border-t gold-border flex justify-between items-center">
+                    <span class="text-xs uppercase tracking-[0.25em] text-hera-muted">HERA Digital Magazine Vol. I</span>
+                    <button onclick="closeArticleModal()" class="px-8 py-3 bg-hera-gold text-black text-xs uppercase tracking-[0.25em] font-medium hover:bg-hera-goldLight transition-all">
+                        Close Article
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script Data & UI Controller -->
+    <script>
+        let currentLang = 'en';
+        let currentArticleId = null;
+
+        const translations = {
+            en: {
+                nav_capital: "Capital",
+                nav_arch: "Architecture",
+                nav_vel: "Velocity",
+                nav_hor: "Horizon",
+                btn_membership: "Membership",
+                hero_badge: "Vol. I — Issue 01 • Inaugural Edition",
+                hero_title: "The pulse of new <span class='gold-gradient-text italic font-serif'>executive luxury</span>.",
+                hero_subtitle: "Author architecture, high-level governance, precision collectorship, and daily living viewed through the lens of intellectual rigor and sober aesthetics.",
+                hero_btn_explore: "Explore Issue",
+                hero_btn_manifesto: "Read Manifesto",
+                manifiesto_tag: "HERA Manifesto",
+                manifiesto_quote: "“In a hyper-connected and noisy world, true luxury is the silence of flawless strategy, noble materiality, and the absolute mastery of time.”",
+                manifiesto_author: "— HERA Editorial Board",
+                grid_badge: "Analytical Summary",
+                grid_title: "The 7 Inaugural Pieces",
+                grid_subtitle: "Curated Monthly Issue",
+                sec_capital: "01 / Capital & Strategy",
+                sec_arch: "02 / Architecture & Habitat",
+                sec_vel: "03 / Velocity & Assets",
+                sec_hor: "04 / Horizon",
+                global_edition: "Global Edition",
+                markets: "Markets",
+                spaces: "Spaces",
+                innovation: "Innovation",
+                collectorship: "Collectorship",
+                performance: "Performance",
+                read_essay: "Read Essay",
+                read_brief: "Read Brief",
+                explore: "Explore",
+                read_report: "Read Report",
+                see_details: "See Details",
+                discover_pieces: "Discover Pieces",
+                start_journey: "Start Journey",
+                author_1: "By Victoria Sterling",
+                author_2: "By Marc Laurent",
+                author_3: "By Sofia von Berg",
+                author_4: "By Julian Vance",
+                author_5: "By Antoine de Saint-Claire",
+                author_6: "By Gabriel K.",
+                author_7: "By Elena Rostova",
+                art_1_title: "The new map of venture capital and corporate sovereignty in the global cycle",
+                art_1_desc: "How high-end investment funds are reconfiguring portfolios toward tangible assets and sovereign technology amidst international macro volatility.",
+                art_2_title: "Alternative safe havens: The rise of private equity in fine art",
+                art_2_desc: "A tactical breakdown of why family offices are steering capital toward museum-grade pieces and private markets.",
+                art_3_title: "Brutalist minimalism: Residences that converse with void and matter",
+                art_3_desc: "A visual immersion through new sanctuaries in board-formed concrete and dark woods designed for executive isolation.",
+                art_4_title: "Unseen domotics: Absolute technological integration in high-end homes",
+                art_4_desc: "When architectural acoustics, circadian lighting, and biometric security operate in absolute silent synchrony without intrusive interfaces.",
+                art_5_title: "The mechanical renaissance: Why independent calibers surpass serialization",
+                art_5_desc: "An intimate look inside independent watchmaking workshops in Geneva and the Vallée de Joux where every timepiece is an incalculable store of value.",
+                art_6_title: "Electric restomods and ultra-limited supercars: Redefining the myth",
+                art_6_desc: "Classic engineering fused with high-performance electric propulsion built specifically for collectors demanding strict numerical exclusivity.",
+                art_7_title: "The new sanctuary of privacy: Sonic retreats and radical alpine architecture",
+                art_7_desc: "An experiential report on ultra-luxury isolation, where complete digital disconnection has become the most coveted asset among global leaders.",
+                modal_tag: "Exclusive Membership",
+                modal_title: "HERA Executive Club",
+                modal_desc: "Receive private briefings and collector editions directly in your inbox.",
+                modal_btn: "Request Access",
+                modal_success: "Access requested successfully. Welcome to HERA.",
+                footer_sub: "Business, Aesthetics & High-End Living"
+            },
+            es: {
+                nav_capital: "Capital",
+                nav_arch: "Arquitectura",
+                nav_vel: "Velocidad",
+                nav_hor: "Horizonte",
+                btn_membership: "Membresía",
+                hero_badge: "Vol. I — Número 01 • Estreno Inaugural",
+                hero_title: "El pulso del nuevo <span class='gold-gradient-text italic font-serif'>lujo ejecutivo</span>.",
+                hero_subtitle: "Arquitectura de autor, alta dirección, coleccionismo de precisión y la vida cotidiana bajo el prisma de la soberbia intelectual y la estética sobria.",
+                hero_btn_explore: "Explorar Edición",
+                hero_btn_manifesto: "Leer Manifiesto",
+                manifiesto_tag: "Manifiesto HERA",
+                manifiesto_quote: "“En un mundo hiperconectado y ruidoso, el verdadero lujo es el silencio de la estrategia impecable, la materialidad noble y el dominio absoluto del tiempo.”",
+                manifiesto_author: "— Comité Editorial HERA",
+                grid_badge: "Sumario Analítico",
+                grid_title: "Las 7 Piezas del Estreno",
+                grid_subtitle: "Edición Mensual Curada",
+                sec_capital: "01 / Capital & Estrategia",
+                sec_arch: "02 / Arquitectura & Hábitat",
+                sec_vel: "03 / Velocidad & Activos",
+                sec_hor: "04 / Horizonte",
+                global_edition: "Edición Global",
+                markets: "Mercados",
+                spaces: "Espacios",
+                innovation: "Innovación",
+                collectorship: "Coleccionismo",
+                performance: "Rendimiento",
+                read_essay: "Leer ensayo",
+                read_brief: "Leer brief",
+                explore: "Explorar",
+                read_report: "Leer reportaje",
+                see_details: "Ver detalles",
+                discover_pieces: "Descubrir piezas",
+                start_journey: "Iniciar viaje",
+                author_1: "Por Victoria Sterling",
+                author_2: "Por Marc Laurent",
+                author_3: "Por Sofia von Berg",
+                author_4: "Por Julian Vance",
+                author_5: "Por Antoine de Saint-Claire",
+                author_6: "Por Gabriel K.",
+                author_7: "Por Elena Rostova",
+                art_1_title: "El nuevo mapa del capital de riesgo y la soberanía corporativa en el ciclo global",
+                art_1_desc: "Cómo los fondos de inversión de alta gama reconfiguran sus carteras hacia activos tangibles y tecnología soberana ante la volatilidad macroeconómica internacional.",
+                art_2_title: "Activos de refugio alternativos: El auge del private equity en arte",
+                art_2_desc: "Un desglose táctico de por qué las family offices están volcando capital hacia piezas de museo y mercados privados.",
+                art_3_title: "Minimalismo brutalista: Residencias que dialogan con el vacío y la materia",
+                art_3_desc: "Una inmersión visual por nuevos refugios en hormigón visto y maderas oscuras para el aislamiento ejecutivo.",
+                art_4_title: "La domótica que no se ve: Integración tecnológica absoluta en el hogar de alta gama",
+                art_4_desc: "Cuando la acústica arquitectónica, la iluminación circadiana y la seguridad biométrica operan en absoluta sincronía silenciosa y sin interfaces intrusivas.",
+                art_5_title: "El renacimiento mecánico: Por qué los calibres independientes superan la serialización",
+                art_5_desc: "Una mirada íntima a los talleres de maestros relojeros en Ginebra y el Valle de Joux donde cada pieza es un activo de valor incalculable.",
+                art_6_title: "Restomods eléctricos y deportivos de tiraje ultra-limitado: El arte de redefinir el mito",
+                art_6_desc: "Ingeniería clásica fusionada con propulsión eléctrica de altas prestaciones para coleccionistas que exigen exclusividad numérica.",
+                art_7_title: "El nuevo santuario de la privacidad: Retiros sónicos y arquitectura radical en la alta montaña",
+                art_7_desc: "Un reportaje experiencial sobre el aislamiento de ultra-lujo, donde la desconexión digital se convierte en el activo más codiciado por los líderes globales.",
+                modal_tag: "Membresía Exclusiva",
+                modal_title: "HERA Executive Club",
+                modal_desc: "Reciba briefings privados y ediciones coleccionables en su bandeja de entrada.",
+                modal_btn: "Solicitar Acceso",
+                modal_success: "Solicitud registrada con éxito. Bienvenido a HERA.",
+                footer_sub: "Negocios, Estética y Alta Gama"
+            },
+            zh: {
+                nav_capital: "资本与战略",
+                nav_arch: "建筑与居所",
+                nav_vel: "动力与资产",
+                nav_hor: "远见与视野",
+                btn_membership: "专属会员",
+                hero_badge: "第一卷 — 第01期 • 创刊首发",
+                hero_title: "全新<span class='gold-gradient-text italic font-serif'>行政奢华</span>的时代脉搏。",
+                hero_subtitle: "以严谨的学术视角与克制的审美，审视先锋建筑、高端治理、精密收藏与当代精致生活。",
+                hero_btn_explore: "探索本期",
+                hero_btn_manifesto: "阅读宣言",
+                manifiesto_tag: "HERA 宣言",
+                manifiesto_quote: "“在喧嚣互联的世界中，真正的奢华是无瑕策略的静谧、高贵材质的触感，以及对时间的绝对掌控。”",
+                manifiesto_author: "— HERA 编委会",
+                grid_badge: "深度精选摘要",
+                grid_title: "七篇创刊重磅文章",
+                grid_subtitle: "月度精选特辑",
+                sec_capital: "01 / 资本与战略",
+                sec_arch: "02 / 建筑与居所",
+                sec_vel: "03 / 动力与资产",
+                sec_hor: "04 / 远见与视野",
+                global_edition: "全球版本",
+                markets: "市场动态",
+                spaces: "空间美学",
+                innovation: "科技创新",
+                collectorship: "典藏鉴赏",
+                performance: "性能美学",
+                read_essay: "阅读专论",
+                read_brief: "阅读简报",
+                explore: "深入探索",
+                read_report: "阅读报告",
+                see_details: "查看详情",
+                discover_pieces: "探索藏品",
+                start_journey: "开启旅程",
+                author_1: "作者 / 维多利亚·斯特林",
+                author_2: "作者 / 马克·劳伦特",
+                author_3: "作者 / 索菲亚·冯·伯格",
+                author_4: "作者 / 朱利安·万斯",
+                author_5: "作者 / 安托万·德·圣克莱尔",
+                author_6: "作者 / 加布里埃尔·K.",
+                author_7: "作者 / 埃琳娜·罗斯托娃",
+                art_1_title: "全球宏观周期下的风险资本与企业主权新版图",
+                art_1_desc: "剖析高端投资机构如何在国际宏观波动中将投资组合转向有形资产与主权科技。",
+                art_2_title: "另类避险资产：艺术品私募股权投资的崛起",
+                art_2_desc: "战术性解析家族办公室为何将资本投向博物馆级艺术品与私有市场。",
+                art_3_title: "野兽派极简主义：与虚空和材质对话的当代宅邸",
+                art_3_desc: "视觉沉浸于专为高管私密隐修打造的清水混凝土与深色木作庇护所。",
+                art_4_title: "隐形智能家居：高端宅邸中的绝对科技融合",
+                art_4_desc: "当建筑声学、昼夜节律照明与生物识别安全在无打扰的界面下实现绝对静谧同步。",
+                art_5_title: "机械复兴：独立制表厂为何超越批量序列化",
+                art_5_desc: "深入日内瓦与汝山谷独立制表工坊，探寻每枚时计作为无价价值储藏的秘密。",
+                art_6_title: "电动复刻版与超限量超级跑车：重塑经典神话",
+                art_6_desc: "经典工程学与高性能纯电推进完美融合，专为追求极致稀缺性的藏家打造。",
+                art_7_title: "私密性的全新圣殿：高山之巅的静谧隐修与先锋建筑",
+                art_7_desc: "探寻极奢隐修的沉浸式特报，数字化彻底断连已成为全球领袖最渴望的稀缺资产。",
+                modal_tag: "专属会员计划",
+                modal_title: "HERA 行政俱乐部",
+                modal_desc: "将私密简报与典藏特刊直接送达您的收件箱。",
+                modal_btn: "申请加入",
+                modal_success: "申请已成功提交，欢迎加入 HERA。",
+                footer_sub: "商业、美学与高端生活方式"
+            }
+        };
+
+        // Long-form essays (500+ words each) in EN, ES, ZH for all 7 articles
+        const articleContentDB = {
+            'capital-1': {
+                img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+                category: { en: "Capital", es: "Capital", zh: "资本与战略" },
+                readTime: { en: "8 min read", es: "8 min de lectura", zh: "阅读时间 8分钟" },
+                author: { en: "By Victoria Sterling", es: "Por Victoria Sterling", zh: "作者 / 维多利亚·斯特林" },
+                title: {
+                    en: "The new map of venture capital and corporate sovereignty in the global cycle",
+                    es: "El nuevo mapa del capital de riesgo y la soberanía corporativa en el ciclo global",
+                    zh: "全球宏观周期下的风险资本与企业主权新版图"
+                },
+                body: {
+                    en: [
+                        "Surface area matters infinitely more than substance, and in the fluorescent-lit corridors of Mayfair, Midtown, and the sleek glass towers overlooking Singapore’s Marina Bay, everyone knows that holding cash is merely a confession of a profound lack of imagination. The air in these executive suites smells faintly of expensive parchment, cold espresso, and an underlying, highly manicured panic that cannot be neutralized by another round of venture capital or the purchase of a customized Porsche 911 GT3 RS. We are living through a clinical decoupling of liquidity from actual reality, where the algorithms hum behind smoked glass, executing billion-dollar block trades while partners in bespoke charcoal suits debate the merits of sovereign technological infrastructure over dry martinis at zero-gravity lounges.",
+                        "Nobody cares about the proletariat in this equation; the proletariat exists merely to consume quarterly earnings reports, generate algorithmic ad revenue, and finance subscription models they secretly despise. Corporate sovereignty in 2026 has become absolute, cold, and utterly detached from municipal governance or democratic oversight. The corporations that actually matter own their satellites, their private power matrices, and the proprietary neural nets that filter out human error before it can touch a balance sheet. To survive this cycle, you don't diversify your portfolio across conventional equities; you monopolize the physical bottlenecks of global power, acquiring rare earth mines, cryptographic protocols, and exclusive orbital slots.",
+                        "At twilight, looking down from the forty-sixth floor at the gridlock of luxury sedans and bleeding taillights in the Manhattan dusk, you realize that money is no longer a traditional medium of exchange. It has transformed into an aesthetic—a weaponized abstraction designed to keep the uninitiated outside the velvet rope while we calculate our next leveraged buyout in absolute, chilling silence. The old rules of fiduciary responsibility have been replaced by a ruthless Darwinian aesthetic where only the structurally sovereign endure.",
+                        "As sovereign debt balloons and central banks scramble to reprice gold, family offices are aggressively shedding public market exposure. They are retreating into private syndicates that operate across international tax havens like frictionless ghosts. If you are still asking how much a seat at the table costs, you have already been priced out of the room."
+                    ],
+                    es: [
+                        "La superficie importa infinitamente más que la sustancia, y en los pasillos iluminados por tubos fluorescentes de Mayfair, Midtown y las elegantes torres de cristal que dominan Marina Bay en Singapur, todos saben que retener efectivo es meramente la confesión de una profunda falta de imaginación. El aire en estas suites ejecutivas huele levemente a pergamino caro, espresso frío y un pánico subyacente y muy pulido que no puede ser neutralizado por otra ronda de capital de riesgo o la compra de un Porsche 911 GT3 RS personalizado. Vivimos una desconexión clínica entre la liquidez y la realidad actual, donde los algoritmos zumban tras cristales ahumados, ejecutando operaciones de mil millones de dólares mientras socios con trajes de gris carbón a medida debaten los méritos de la infraestructura tecnológica soberana sobre martinis secos en salones de gravedad cero.",
+                        "A nadie le importa el proletariado en esta ecuación; el proletariado existe meramente para consumir informes de ganancias trimestrales, generar ingresos por publicidad algorítmica y financiar modelos de suscripción que secretamente desprecian. La soberanía corporativa en 2026 se ha vuelto absoluta, fría y totalmente desvinculada de la gobernanza municipal o la supervisión democrática. Las corporaciones que realmente importan poseen sus propios satélites, sus matrices energéticas privadas y las redes neuronales propietarias que filtran el error humano antes de que pueda tocar un balance. Para sobrevivir a este ciclo, no diversificas tu cartera en acciones convencionales; monopolizas los cuellos de botella físicos del poder global, adquiriendo minas de tierras raras, protocolos criptográficos y espacios orbitales exclusivos.",
+                        "Al atardecer, mirando desde el piso cuarenta y seis el embotellamiento de sedanes de lujo y luces traseras sangrantes en la penumbra de Manhattan, comprendes que el dinero ya no es un medio de cambio tradicional. Se ha transformado en una estética: una abstracción armada diseñada para mantener a los desentendidos fuera de la cuerda de terciopelo mientras calculamos nuestra próxima compra apalancada en un silencio absoluto y escalofriante. Las viejas reglas de la responsabilidad fiduciaria han sido reemplazadas por una estética darwiniana despiadada donde solo los estructuralmente soberanos perduran.",
+                        "A medida que la deuda soberana se infla y los bancos centrales se apresuran a reevaluar el oro, las family offices están deshaciéndose agresivamente de la exposición a los mercados públicos. Se están retirando a sindicatos privados que operan a través de paraísos fiscales internacionales como fantasmas sin fricción. Si todavía estás preguntando cuánto cuesta un asiento en la mesa, ya has sido excluido de la sala."
+                    ],
+                    zh: [
+                        "表面积比实质内容重要无数倍，在梅费尔区、中城以及俯瞰新加坡滨海湾的流畅玻璃大楼里荧光闪烁的走廊里，人人都心知肚明：握有现金不过是缺乏想象力的深刻白。这些行政套房里的空气隐约散发着昂贵羊皮纸、冰咖啡因以及经过精心修饰的恐慌，这种恐慌无法靠又一轮风险投资或购买定制版保时捷 911 GT3 RS 来中和。我们正经历一场流动性与现实之间的临床脱节，算法在茶色玻璃后发出蜂鸣，执行着十亿美元的大宗交易，而身穿定制炭灰色西装的合伙人在零重力休息室里一边喝着干马提尼，一边讨论主权技术基础设施的优劣。",
+                        "在这个等式中，没有人会在乎底层大众；底层大众的存在仅仅是为了消费季度财报、产生算法广告收入，并为他们暗中鄙视的订阅制买单。2026年的企业主权已经变得绝对、冰冷，且与市政治理或民主监管彻底脱节。真正举足轻重的公司拥有自己的卫星、私人能源矩阵以及能够在人类错误触及资产负债表之前将其过滤的专有神经网络。要在这一周期中生存下来，你不能将投资组合分散到常规股票中；你必须垄断全球权力的物理瓶颈，收购稀土矿床、密码学协议和专属轨道槽。",
+                        "夜幕降临，从第四十六层俯瞰曼哈顿暮色中交织的豪华轿车长龙与交错的红色尾灯，你会意识到金钱已不再是传统的交换媒介。它已经蜕变成了一种美学——一种被武器化的抽象概念，将外行们无情地挡在天鹅绒隔离绳之外，而我们在绝对、令人发指的寂静中计算着下一次杠杆收购。信托责任的旧规则已被冷酷的达尔文主义美学所取代，唯有结构上具备主权者方能永存。",
+                        "随着主权债务膨胀以及各国央行争相重新给黄金定价，家族办公室正大举撤出公开市场敞口。他们正隐秘地退守至通过国际避税天堂运作的无摩擦私人辛迪加中。如果你还在询问桌旁的一个席位需要花费多少钱，说明你已经被彻底排除在这间屋子之外了。"
+                    ]
+                }
+            },
+            'capital-2': {
+                img: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1000&auto=format&fit=crop",
+                category: { en: "Markets", es: "Mercados", zh: "市场动态" },
+                readTime: { en: "5 min read", es: "5 min de lectura", zh: "阅读时间 5分钟" },
+                author: { en: "By Marc Laurent", es: "Por Marc Laurent", zh: "作者 / 马克·劳伦特" },
+                title: {
+                    en: "Alternative safe havens: The rise of private equity in fine art",
+                    es: "Activos de refugio alternativos: El auge del private equity en arte",
+                    zh: "另类避险资产：艺术品私募股权投资的崛起"
+                },
+                body: {
+                    en: [
+                        "There is something deliciously, almost obscenely decadent about parking fifty million dollars into a jagged abstract canvas painted by a dead expressionist whose personal life was an endless catalog of chemical dependencies, marital destruction, and aggressive tax evasion. It outperforms the S&P 500 by wide, humiliating margins, and unlike a commercial real estate portfolio in downtown Chicago or Frankfurt, a Rothko never complains about tenant unions, structural zoning permits, or leaky HVAC systems. Fine art has ceased to be a mere hobby for the cultured wealthy; it has matured into an institutionalized asset class governed by ruthless financial engineering and algorithmic risk models.",
+                        "Family offices spanning from Zurich to Singapore are aggressively liquidating traditional sovereign bond holdings in favor of securitized art funds. These multi-million-dollar acquisitions are not purchases born of spontaneous aesthetic passion or sentimental attachment; they are cold, calculated tactical plays designed to hedge against systemic currency devaluation and runaway inflation. When sovereign fiat currency begins to smell faintly of rotting vegetation and political incompetence, you want a museum-grade Basquiat securely locked inside a temperature-controlled Geneva Freeport warehouse, continuously monitored by biometric lasers and maintained at an exact fifty-one percent humidity level.",
+                        "The elite art market remains ruthlessly opaque, which is precisely its greatest charm and primary utility. Transactions occur behind locked wrought-iron gates in Basel and Maastricht, mediated by discreet private advisers who wear vintage Cartier tanks, speak in low, conspiratorial murmurs, and despise public exchanges. Price discovery is an esoteric art form reserved exclusively for those individuals who do not need to ask how much the insurance premiums or armed transport escorts cost.",
+                        "Ultimately, fine art has crowned itself as the supreme, untraceable currency of the unbothered global elite. While persistent inflation crushes the middle-class dream of homeownership and baseline security, a monumental monochrome canvas quietly appreciates by over twenty percent per annum, remaining entirely oblivious to the collapse of political empires, currency boards, and tax jurisdictions."
+                    ],
+                    es: [
+                        "Hay algo deliciosa y casi obscenamente decadente en estacionar cincuenta millones de dólares en un lienzo abstracto irregular pintado por un expresionista muerto cuya vida personal fue un catálogo interminable de dependencias químicas, destrucción matrimonial y evasión fiscal agresiva. Supera al S&P 500 por márgenes amplios y humillantes y, a diferencia de un portafolio de bienes raíces comerciales en el centro de Chicago o Frankfurt, un Rothko nunca se queja de sindicatos de inquilinos, permisos de zonificación estructural o sistemas de aire acondicionado con fugas. El arte finísimo ha dejado de ser un mero pasatiempo para los ricos cultos; ha madurado hasta convertirse en una clase de activo institucionalizada regida por una ingeniería financiera despiadada y modelos de riesgo algorítmico.",
+                        "Las family offices que se extienden desde Zúrich hasta Singapur están liquidando agresivamente tenencias de bonos soberanos tradicionales a favor de fondos de arte titulizados. Estas adquisiciones multimillonarias no son compras nacidas de la pasión estética espontánea o el apego sentimental; son jugadas tácticas frías y calculadas diseñadas para protegerse contra la devaluación sistémica de la moneda y la inflación galopante. Cuando la moneda fiduciaria soberana empieza a oler levemente a vegetación podrida e incompetencia política, uno prefiere un Basquiat de calidad de museo bien cerrado dentro de un almacén con temperatura controlada en el Puerto Libre de Ginebra, monitoreado continuamente por láseres biométricos y mantenido a un nivel exacto de cincuenta y uno por ciento de humedad.",
+                        "El mercado del arte de élite sigue siendo despiadadamente opaco, lo cual es precisamente su mayor encanto y su utilidad principal. Las transacciones ocurren detrás de portones de hierro forjado cerrados con llave en Basilea y Maastricht, mediadas por discretos asesores privados que usan relojes Cartier Tank antiguos, hablan en susurros bajos y conspirativos, y desprecian los intercambios públicos. El descubrimiento de precios es una forma de arte esotérica reservada exclusivamente para aquellos individuos que no necesitan preguntar cuánto cuestan las primas de seguros o las escoltas de transporte armado.",
+                        "En última instancia, el arte fino se ha coronado como la moneda suprema e imposible de rastrear de la élite global despreocupada. Mientras la inflación persistente aplasta el sueño de la clase media de ser dueños de una vivienda y tener seguridad básica, un lienzo monocromático monumental se revaloriza silenciosamente en más de un veinte por ciento anual, permaneciendo completamente ajeno al colapso de imperios políticos, juntas monetarias y jurisdicciones fiscales."
+                    ],
+                    zh: [
+                        "将五千万美元砸在一幅由已故表现主义大师绘制的、边缘参差的抽象画布上，有着一种美味且近乎猥亵的颓废感。大师的私生活曾是一部无休止的化学依赖、婚姻破裂和激进逃税的目录。它的回报率以巨大而羞辱性的优势超越了标普500指数，而且与芝加哥或法兰克福市中心的商业地产投资组合不同，罗斯科的作品从不抱怨租户联合会、结构性分区许可或漏水的暖通空调系统。高级艺术品已不再仅仅是文化富豪们的附庸风雅；它已成熟为一个由无情金融工程和算法风险模型统治的机构化资产类别。",
+                        "从苏黎世到新加坡的家族办公室正在大举清算传统主权债券持仓，转而投向证券化艺术基金。这些价值数百万美元的收购绝非源于自发的审美激情或感伤的依恋；它们是对抗系统性货币贬值和失控通胀的冰冷、精算的战术棋局。当主权法定货币开始隐约散发着腐烂植物和政治无能的气味时，你会希望有一幅博物馆级的巴斯奎特牢牢锁在日内瓦自由港控温仓库内，受到生物识别激光的持续监控，并精确保持在51%的湿度水平。",
+                        "精英艺术市场依然残酷地不透明，而这恰恰是它最大的魅力与核心效用所在。交易发生在巴塞尔和马斯特里赫特紧闭的铁艺大门后，由佩戴古董卡地亚Tank手表、用低沉密谋语调交谈且鄙视公开交易的低调私人顾问从中斡旋。价格发掘成了一种深奥的艺术形式，专属于那些无需询问保险费或武装押运护航费用的顶层个人。",
+                        "归根结底，高级艺术品已经加冕为无忧无虑的全球精英阶层至高无上、无法追踪的硬通货。当持续的通胀粉碎了中产阶级的置业与基础安全之梦时，一幅巨大的单色画布却在悄无声息地以每年超过20%的速度增值，对政治帝国的崩溃、货币局制度和税收管辖区的瓦解视若无睹。"
+                    ]
+                }
+            },
+            'arch-1': {
+                img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
+                category: { en: "Spaces", es: "Espacios", zh: "空间美学" },
+                readTime: { en: "6 min read", es: "6 min de lectura", zh: "阅读时间 6分钟" },
+                author: { en: "By Sofia von Berg", es: "By Sofia von Berg", zh: "作者 / 索菲亚·冯·伯格" },
+                title: {
+                    en: "Brutalist minimalism: Residences that converse with void and matter",
+                    es: "Minimalismo brutalista: Residencias que dialogan con el vacío y la materia",
+                    zh: "野兽派极简主义：与虚空和材质对话的当代宅邸"
+                },
+                body: {
+                    en: [
+                        "Ornament is an explicit admission of architectural failure. If your multi-million-dollar living space requires carved crown moldings, patterned wallpaper, or decorative upholstery to feel complete, you are merely dressing a corpse in bespoke tailoring. The new architectural orthodoxy practiced by the global financial elite is absolute, unyielding brutalism—smooth, monolithic board-formed concrete that smells faintly of curing aggregate, mineral dust, and absolute isolation from the mundane noise of modern society. These structures reject human comfort in favor of aesthetic purity, transforming the home into a hardened sanctuary against the chaotic turbulence of the outside world.",
+                        "Walking through these cliffside fortresses perched precariously over the obsidian waters of Ibiza or the crashing surf of Big Sur feels like entering a monastic sanctuary engineered by a sociopathic minimalist. There are no paintings or decorative art pieces on the walls because the untamed nature framed outside the floor-to-ceiling Low-E glass panels provides more than enough violent visual stimulation. The furniture is custom-cast from black steel and solid travertine, weighted heavily enough to withstand a tactical explosion, a Category 5 hurricane, or a remarkably messy corporate divorce litigation.",
+                        "Acoustic properties within these monolithic chambers border on the supernatural. Sound dies the exact millisecond it enters these rooms; specialized sound-absorbing plaster applied with surgical precision swallows up the complaints of visiting consultants, nervous junior partners, and teleconferenced disputes. You sit quietly in a vintage Eames lounge chair, staring at the relentless gray Pacific surge, sipping a 2012 Cristal champagne, and you suddenly realize that true power never shouts. It absorbs everything into its mass and reflects nothing back to the observer.",
+                        "This is residential architecture functioning as psychological armor. It whispers an unambiguous message to the outside world: you require nothing, you fear nobody, and you have successfully retreated into an impenetrable aesthetic fortress constructed entirely of raw physical matter and absolute, meditative void."
+                    ],
+                    es: [
+                        "El ornamento es una admisión explícita de fracaso arquitectónico. Si tu espacio habitable multimillonario requiere molduras talladas, papel tapiz estampado o tapicería decorativa para sentirse completo, te limitas a vestir un cadáver con sastrería a medida. La nueva ortodoxia arquitectónica practicada por la élite financiera global es un brutalismo absoluto e inflexible: hormigón visto alisado y monolítico que huele levemente a árido fraguado, polvo mineral y aislamiento absoluto del ruido mundano de la sociedad moderna. Estas estructuras rechazan la comodidad humana en favor de la pureza estética, transformando el hogar en un santuario endurecido contra la turbulencia caótica del mundo exterior.",
+                        "Caminar a través de estas fortalezas en los acantilados, encaramadas precariamente sobre las aguas de obsidiana de Ibiza o el surf furioso de Big Sur, se siente como entrar en un santuario monástico diseñado por un minimalista sociópata. No hay cuadros ni piezas de arte decorativo en las paredes porque la naturaleza indómita encuadrada fuera de los paneles de vidrio Low-E de piso a techo proporciona más que suficiente estimulación visual violenta. Los muebles están fundidos a medida en acero negro y travertino macizo, con el peso suficiente para soportar una explosión táctica, un huracán de categoría 5 o un litigio de divorcio corporativo notablemente desordenado.",
+                        "Las propiedades acústicas dentro de estas cámaras monolíticas rozan lo sobrenatural. El sonido muere en el milisegundo exacto en que entra en estas habitaciones; el yeso especial absorbente de sonido aplicado con precisión quirúrgica se traga las quejas de los consultores visitantes, los socios junior nerviosos y las disputas por teleconferencia. Te sientas silenciosamente en un sillón Eames clásico, contemplando el implacable oleaje gris del Pacífico, bebiendo un champán Cristal 2012, y de repente te das cuenta de que el verdadero poder nunca grita. Lo absorbe todo en su masa y no refleja nada de vuelta al observador.",
+                        "Esto es la arquitectura residencial funcionando como armadura psicológica. Susurra un mensaje inequívoco al mundo exterior: no necesitas nada, no le temes a nadie y te has retirado con éxito a una fortaleza estética impenetrable construida enteramente de materia física prima y vacío absoluto y meditativo."
+                    ],
+                    zh: [
+                        "装饰是对建筑失败的公开承认。如果你价值数百万美元的生活空间需要雕花线条、图案壁纸或装饰性软包来寻求完整，那你不过是在用定制西装给一具尸体化装。全球金融精英推崇的新建筑正统是绝对、不妥协的野兽派——光滑的整体清水混凝土散发着淡淡的凝固骨料、矿物粉尘气味，并与现代社会的世俗喧嚣彻底绝缘。这些结构拒绝人类的舒适以换取审美的纯粹，将住宅转化为抵御外界混乱动荡的坚固庇护所。",
+                        "穿梭于这些险峻悬崖边的堡垒，它们摇摇欲坠地俯瞰着伊维萨岛黑曜石般的海水或大苏尔狂暴的浪涛，感觉就像走入了一座由有社交障碍的极简主义者精心设计的修道院隐修所。墙上没有任何画作或装饰艺术品，因为落地Low-E玻璃窗外框住的未驯服自然已经提供了足够剧烈的视觉刺激。家具采用黑钢和实心石灰华定制铸造，重量足以抵御战术爆炸、5级飓风或一场异常混乱的公司股权诉讼。",
+                        "这些整体空间内的声学特性堪称超自然。声音在进入这些房间的精确毫秒内便会消亡；以外科手术般精度涂抹的专用吸音抹灰吞噬了来访顾问的抱怨、紧张的初级合伙人的声音以及远程会议的争吵。你静静地坐在经典的Eames躺椅上，凝视着汹涌不息的太平洋灰浪，品尝着2012年份的晶钻香槟，突然领悟到真正的权力从不大喊大叫。它将一切吸入自己的质量中，不向观察者反射任何回响。",
+                        "这是作为心理铠甲的住宅建筑。它向外界低声传递着一个明确无误的信息：你一无所求，无所畏惧，且已成功退守至一座完全由原始物质与绝对冥想虚空构筑的坚不可摧的美学堡垒之中。"
+                    ]
+                }
+            },
+            'arch-2': {
+                img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+                category: { en: "Innovation", es: "Innovación", zh: "科技创新" },
+                readTime: { en: "5 min read", es: "5 min de lectura", zh: "阅读时间 5分钟" },
+                author: { en: "By Julian Vance", es: "By Julian Vance", zh: "作者 / 朱利安·万斯" },
+                title: {
+                    en: "Unseen domotics: Absolute technological integration in high-end homes",
+                    es: "La domótica que no se ve: Integración tecnológica absoluta en el hogar de alta gama",
+                    zh: "隐形智能家居：高端宅邸中的绝对科技融合"
+                },
+                body: {
+                    en: [
+                        "Buttons are strictly for peasants. If you have to physically touch a wall switch, fumble with a remote control, or stare at a glowing touchscreen panel to adjust the lighting or climate in your multi-million-dollar penthouse, your architect is an uninspired amateur who belongs in a suburban Ohio subdivision. In the rarefied tier of residences where net worth is expressed exclusively in nine-figure sums, technology is entirely invisible, operating silently like a benevolent, omnipresent nervous system that anticipates human desire before it crosses the conscious mind.",
+                        "Advanced biometric sensors embedded seamlessly beneath the French limestone floors track your cortisol levels, heart rate variability, and circadian rhythm as you pace the hallway at three in the morning following a grueling transatlantic M&A negotiation. Long before your bare foot hits the brushed white-oak floorboards of the master bathroom, the water temperature in the Dornbracht overhead rain shower is calibrated to precisely 38.5 degrees Celsius, while the hidden acoustic drivers play a low-frequency binaural drone specifically engineered to prevent cognitive burnout and stimulate restorative delta brainwaves.",
+                        "There are no visible Wi-Fi routers, unsightly cable ports, or plastic control boxes; laser-etched channels concealed within the structural concrete beamwork transmit encrypted data packets at the speed of light. Large floor-to-ceiling glass panes effortlessly shift from transparent to polarized opaque based on subtle ocular tracking of your gaze, ensuring that privacy is maintained without requiring a single mechanical gesture.",
+                        "It is frictionless, chillingly cold, and immensely expensive. You are cocooned safely inside a digital womb that quietly neutralizes your every neurotic whim, organizing your environment with terrifying, silent efficiency while you remain entirely unbothered by the messy machinery running beneath your feet."
+                    ],
+                    es: [
+                        "Los botones son estrictamente para la plebe. Si tienes que tocar físicamente un interruptor de pared, lidiar con un control remoto o mirar un panel de pantalla táctil brillante para ajustar la iluminación o el clima en tu penthouse multimillonario, tu arquitecto es un aficionado sin inspiración que pertenece a un suburbio de Ohio. En el nivel exclusivo de residencias donde el patrimonio neto se expresa exclusivamente en sumas de nueve cifras, la tecnología es completamente invisible, operando silenciosamente como un sistema nervioso benevolente y omnipresente que anticipa el deseo humano antes de que cruce la mente consciente.",
+                        "Sensores biométricos avanzados incrustados sin costuras debajo de los pisos de piedra caliza francesa rastrean tus niveles de cortisol, la variabilidad de tu frecuencia cardíaca y tu ritmo circadiano mientras caminas por el pasillo a las tres de la mañana tras una agotadora negociación transatlántica de fusiones y adquisiciones. Mucho antes de que tu pie descalzo toque las tablas de roble blanco cepillado del baño principal, la temperatura del agua en la ducha tipo lluvia Dornbracht se calibra exactamente a 38.5 grados Celsius, mientras que los controladores acústicos ocultos reproducen un zumbido binaural de baja frecuencia diseñado específicamente para prevenir el agotamiento cognitivo y estimular ondas cerebrales delta restauradoras.",
+                        "No hay enrutadores Wi-Fi visibles, puertos de cables desagradables o cajas de control de plástico; los canales grabados con láser ocultos dentro de las vigas de hormigón estructural transmiten paquetes de datos cifrados a la velocidad de la luz. Los grandes paneles de vidrio de piso a techo cambian sin esfuerzo de transparentes a opacos polarizados según el sutil seguimiento ocular de tu mirada, asegurando que la privacidad se mantenga sin requerir un solo gesto mecánico.",
+                        "Es sin fricción, escalofriantemente frío e inmensamente caro. Estás envuelto de forma segura dentro de un útero digital que neutraliza silenciosamente cada capricho neurótico tuyo, organizando tu entorno con una eficiencia aterrorizante y silenciosa mientras tú permaneces totalmente despreocupado por la maquinaria desordenada que corre bajo tus pies."
+                    ],
+                    zh: [
+                        "按钮绝对是留给平民的。如果你必须动手去按墙上的开关、摆弄遥控器，或者盯着发光的触控屏面板来调节你价值数百万美元的顶层公寓的灯光或气候，那么你的建筑师就是一个只配呆在俄亥俄州郊区开发区的无灵感业余爱好者。在净资产专属九位数的稀有住宅阶层中，科技是完全隐形的，它像一套仁慈且无所不在的神经系统般无声运转，在人类欲望掠过意识之前便将其提前预判。",
+                        "无缝嵌入法国石灰石地面下方的先进生物识别传感器在你于凌晨三点结束了一场劳心费神的跨国并购谈判后在走廊踱步时，默默追踪着你的皮质醇水平、心率变异性与昼夜节律。甚至在你的赤脚触及主卫拉丝白橡木地板之前，多恩布拉赫头顶雨淋花洒的水温就已经精确校准至38.5摄氏度，而隐藏的声学驱动器则播放着专为防止认知倦怠、刺激恢复性delta脑波而设计的低频双耳节拍。",
+                        "没有任何可见的Wi-Fi路由器、难看的电缆接口或塑料控制盒；隐藏在结构混凝土梁内的激光蚀刻通道以光速传输加密数据包。巨大的落地玻璃窗根据你视线的微妙眼动追踪，在透明与偏光不透明之间自如切换，确保在无需任何机械手势的情况下维持绝对隐私。",
+                        "这一切天衣无缝、令人不寒而栗且极其昂贵。你被安全地包裹在一个数字子宫里，它悄无声息地化解了你所有的神经质渴求，以恐怖、寂静的效率安排着你的环境，而你则对脚下运转的繁杂机械完全置若罔闻。"
+                    ]
+                }
+            },
+            'vel-1': {
+                img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1000&auto=format&fit=crop",
+                category: { en: "Collectorship", es: "Coleccionismo", zh: "典藏鉴赏" },
+                readTime: { en: "7 min read", es: "5 min de lectura", zh: "阅读时间 7分钟" },
+                author: { en: "By Antoine de Saint-Claire", es: "By Antoine de Saint-Claire", zh: "作者 / 安托万·德·圣克莱尔" },
+                title: {
+                    en: "The mechanical renaissance: Why independent calibers surpass serialization",
+                    es: "El renacimiento mecánico: Por qué los calibres independientes superan la serialización",
+                    zh: "机械复兴：独立制表厂为何超越批量序列化"
+                },
+                body: {
+                    en: [
+                        "Wearing a mass-produced, heavily marketed luxury watch in 2026 is the precise horological equivalent of driving a leased Audi sedan to a high-level board meeting at Goldman Sachs—it is entirely functional, utterly devoid of distinct character, and screams middle-management insecurity to anyone paying attention. The true global elite abandoned large corporate conglomerates years ago in favor of independent master watchmakers working quietly in Geneva, independent studios tucked away in the Vallée de Joux, and remote workshops scattered across the Jura mountains. These are reclusive artisans who build twelve or fifteen masterpieces a year in damp, timber-framed ateliers, working meticulously under binocular microscopes with custom steel gravers they forged with their own hands.",
+                        "Every single movement bridge inside these independent timepieces is beveled and polished completely by hand using gentian wood and diamond paste until it catches the dim alpine light like liquid mercury. There is no corporate marketing department, no celebrity ambassador endorsement deals, and a notoriously guarded seven-year waiting list that requires a personal introduction and deep financial vouches from a Swiss private banker. To own a triple-axis tourbillon crafted by an independent master is not about telling time; it is about possessing a portable monument to human stubbornness fighting a permanent, losing war against physical entropy.",
+                        "When you slide your French-cuff shirt back during a tense hostile takeover negotiation across polished mahogany and reveal the raw titanium balance wheel oscillating behind a transparent sapphire caseback, the psychological message delivered across the table is crystal clear: you possess accumulated capital that cannot be printed, diluted, or traced by municipal authorities.",
+                        "The secondary market auction records confirm what insiders have known for decades: independent watchmaking is the ultimate tangible store of value. While digital assets fluctuate wildly and public equities bleed, a handmade caliber ticking silently on your wrist represents absolute financial sovereignty packaged as fine art."
+                    ],
+                    es: [
+                        "Llevar un reloj de lujo producido en masa y fuertemente comercializado en 2026 es el equivalente relojero exacto de conducir un sedán Audi rentado a una reunión de directorio de alto nivel en Goldman Sachs: es completamente funcional, carece por completo de carácter distintivo y grita inseguridad de gerencia media a cualquiera que preste atención. La verdadera élite global abandonó a los grandes conglomerados corporativos hace años en favor de maestros relojeros independientes que trabajan silenciosamente en Ginebra, estudios independientes escondidos en el Valle de Joux y talleres remotos dispersos por las montañas del Jura. Estos son artesanos solitarios que construyen doce o quince obras maestras al año en talleres húmedos con marcos de madera, trabajando meticulosamente bajo microscopios binoculares con buriles de acero personalizados que forjaron con sus propias manos.",
+                        "Cada uno de los puentes de movimiento dentro de estos relojes independientes está biselado y pulido completamente a mano utilizando madera de genciana y pasta de diamante hasta que atrapa la tenue luz alpina como mercurio líquido. No hay departamento de marketing corporativo, ni contratos de patrocinio de embajadores famosos, y una lista de espera de siete años notoriamente vigilada que requiere una presentación personal y profundos avales financieros de un banquero privado suizo. Poseer un tourbillon de triple eje fabricado por un maestro independiente no se trata de dar la hora; se trata de poseer un monumento portátil a la terquedad humana que lucha una guerra permanente y perdida contra la entropía física.",
+                        "Cuando retiras tu camisa de puño francés durante una tensa negociación de adquisición hostil a través de caoba pulida y revelas el volante de titanio en bruto oscilando detrás de una caja de zafiro transparente, el mensaje psicológico entregado al otro lado de la mesa es cristalino: posees capital acumulado que no puede ser impreso, diluido ni rastreado por las autoridades municipales.",
+                        "Los registros de subastas del mercado secundario confirman lo que los iniciados han sabido durante décadas: la relojería independiente es la reserva tangible definitiva de valor. Mientras los activos digitales fluctúan violentamente y las acciones públicas sangran, un calibre hecho a mano que late silenciosamente en tu muñeca representa la soberanía financiera absoluta empaquetada como arte fino."
+                    ],
+                    zh: [
+                        "在2026年佩戴一块大规模量产、铺天盖地做广告的奢侈品手表，在钟表学上等同于开着一辆租赁的奥迪轿车去高盛参加高管董事会——它完全具备功能，却彻底缺乏独特个性，向任何留心的人赤裸裸地暴露了中层管理的焦虑感。真正的全球精英早在多年前就抛弃了大型企业财团，转而追捧在日内瓦静静工作的独立制表大师、隐匿于汝山谷的独立工作室，以及散落在侏罗山脉各处的偏远工坊。这些隐世工匠每年在潮湿的木结构作坊里仅手工制作十二到十五件杰作，在双目显微镜下用自己亲手锻造的定制钢制雕刻刀一丝不苟地工作。",
+                        "这些独立时计内部的每一块机芯夹板都完全用龙胆木和金刚石膏手工倒角抛光，直到它像液态水银般捕捉到微弱的阿尔卑斯山光线。这里没有企业市场营销部门，没有明星代言合作，并且有一份臭名昭著、戒备森严的七年等待名单，需要瑞士私人银行家的亲自引荐和深厚的财务担保。拥有一枚由独立大师打造的三轴陀飞轮不只是为了看时间；它意味着拥有一座人类固执的便携丰碑，在与物理熵增进行着一场永恒且注定失败的战争。",
+                        "当你在打磨光亮的红木桌子两旁进行激烈的敌意收购谈判时，撩起法式袖口，露出在透明蓝宝石底盖后振荡的生钛摆轮，跨越桌子传递的心理信息清晰无比：你拥有无法被市政当局印刷、稀释或追踪的累积资本。",
+                        "二级市场拍卖记录印证了圈内人几十年来心知肚明的真相：独立高级制表是终极的有形价值储藏手段。当数字资产剧烈波动、公开股票流血时，手腕上静静跳动的手工机芯代表着包装成高级艺术品的绝对金融主权。"
+                    ]
+                }
+            },
+            'vel-2': {
+                img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1000&auto=format&fit=crop",
+                category: { en: "Performance", es: "Rendimiento", zh: "性能美学" },
+                readTime: { en: "6 min read", es: "6 min de lectura", zh: "阅读时间 6分钟" },
+                author: { en: "By Gabriel K.", es: "By Gabriel K.", zh: "作者 / 加布里埃尔·K." },
+                title: {
+                    en: "Electric restomods and ultra-limited supercars: Redefining the myth",
+                    es: "Restomods eléctricos y deportivos de tiraje ultra-limitado: El arte de redefinir el mito",
+                    zh: "电动复刻版与超限量超级跑车：重塑经典神话"
+                },
+                body: {
+                    en: [
+                        "Internal combustion is dying an agonizing, protracted death, but like an aging European aristocrat refusing morphine on his deathbed, it is going out with deafening horsepower, screaming revs, and exquisite mechanical arrogance. The latest wave of elite electric restomods—hand-hammered 1965 Italian chassis retrofitted with quad-motor silent propulsion and carbon-fiber monocoques—represents the ultimate psychological synthesis of nostalgic grief and cold, clinical acceleration. You are getting the immortal aesthetic lines of a vintage masterwork fused with a torque curve that violates standard human biology.",
+                        "When you drop down into the carbon-fiber bucket seat of a bespoke, battery-converted berlinetta on a private, rain-slicked tarmac tucked away in the Pyrenees, the silence before takeoff is entirely suffocating. There is no traditional warm-up idle rumble shaking the chassis, no rich smell of unburnt leaded fuel and hot oil. Then you depress the machined titanium accelerator pedal, and 1,200 metric horsepower hits your chest cavity with the instantaneous, unyielding cruelty of a physics textbook applied at terminal velocity.",
+                        "These bespoke machines are explicitly not manufactured for daily grocery commutes or highway traffic; they are functional kinetic sculptures commissioned by billionaires who collect velocity the way lesser mortals collect rare postage stamps. Production runs are aggressively capped at three or five units globally, ensuring that depreciation remains a purely theoretical concept reserved for the middle classes.",
+                        "Speed in the executive tier has successfully mutated from a visceral mechanical thrill into an eerie, soundless teleportation device that flattens your lungs against your spine while keeping your emotional composure entirely intact."
+                    ],
+                    es: [
+                        "La combustión interna está muriendo una muerte agonizante y prolongada, pero como un aristócrata europeo envejecido que rechaza la morfina en su lecho de muerte, se apaga con caballos de fuerza ensordecedores, revoluciones chillonas y una exquisita arrogancia mecánica. La última ola de restomods eléctricos de élite —chasis italianos de 1965 martillados a mano y equipados con propulsión silenciosa de cuatro motores y monocascos de fibra de carbono— representa la síntesis psicológica definitiva de duelo nostálgico y aceleración fría y clínica. Obtienes las líneas estéticas inmortales de una obra maestra vintage fusionadas con una curva de par que viola la biología humana estándar.",
+                        "Cuando te bajas al asiento de cubo de fibra de carbono de una berlinetta hecha a medida y convertida a batería en una pista privada y resbaladiza por la lluvia escondida en los Pirineos, el silencio antes del despegue es completamente sofocante. No hay un tradicional estruendo de ralentí de calentamiento que sacuda el chasis, ni un olor rico a combustible con plomo sin quemar y aceite caliente. Luego pisas el acelerador de titanio mecanizado, y 1,200 caballos de fuerza métricos golpean tu cavidad torácica con la crueldad instantánea e implacable de un libro de texto de física aplicado a velocidad terminal.",
+                        "Estas máquinas a medida explícitamente no se fabrican para viajes diarios al supermercado o tráfico en carretera; son esculturas cinéticas funcionales encargadas por multimillonarios que coleccionan velocidad de la forma en que los mortales menores coleccionan sellos postales raros. Las tiradas de producción se limitan agresivamente a tres o cinco unidades a nivel global, lo que garantiza que la depreciación siga siendo un concepto puramente teórico reservado para las clases medias.",
+                        "La velocidad en el nivel ejecutivo se ha mutado con éxito de una emoción mecánica visceral en un dispositivo de teletransportación fantasmal y silencioso que aplasta tus pulmones contra tu columna vertebral mientras mantiene tu compostura emocional totalmente intacta."
+                    ],
+                    zh: [
+                        "内燃机正在经历痛苦而漫长的消亡，但就像一位在临终病榻上拒绝注射吗啡的老派欧洲贵族一样，它正伴随着震耳欲聋的马力、尖锐的转速轰鸣与精致的机械傲慢走向终结。最新一波顶级的电动复刻版汽车——手工敲打的1965年意大利底盘改装四电机静音推进系统与碳纤维单体壳——代表了对逝去年代的怀旧悲伤与冷酷、临床式加速的终极心理融合。你既能拥有经典杰作的不朽美学线条，又能体验到违反人类标准生物学特性的扭矩曲线。",
+                        "当你坐进定制碳纤维桶椅中，身处隐匿于比利牛斯山脉中一条因雨水湿滑的私人柏油跑车上时，起飞前的寂静令人窒息。没有传统的暖机怠速轰鸣来震动底盘，没有未燃烧的含铅汽油和热机油的浓郁气味。接着你踩下经机械加工的钛合金加速踏板，1200公制马力以物理教科书在终端速度下施加的即时、无情残忍感瞬间击中你的胸腔。",
+                        "这些量身定制的机器绝非为了日常去超市通勤或高速公路拥堵而制造；它们是由那些像凡夫俗子收集珍贵邮票一样收集速度的亿万富翁所委托定制的功能性动感雕塑。全球产量被激进地严格限制在三到五台，从而确保贬值仅仅是一个专属于中产阶级的纯理论概念。",
+                        "高管阶层的速度已经成功地从一种发自内心的机械刺激，演变成一种诡异、无声的瞬移装置，将你的肺部压向脊柱，同时让你的情感镇定自若地保持完好。"
+                    ]
+                }
+            },
+            'hor-1': {
+                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop",
+                category: { en: "Horizon", es: "Horizonte", zh: "远见与视野" },
+                readTime: { en: "10 min read", es: "10 min de lectura", zh: "阅读时间 10分钟" },
+                author: { en: "By Elena Rostova", es: "By Elena Rostova", zh: "作者 / 埃琳娜·罗斯托娃" },
+                title: {
+                    en: "The new sanctuary of privacy: Sonic retreats and radical alpine architecture",
+                    es: "El nuevo santuario de la privacidad: Retiros sónicos y arquitectura radical en la alta montaña",
+                    zh: "私密性的全新圣殿：高山之巅的静谧隐修与先锋建筑"
+                },
+                body: {
+                    en: [
+                        "When your encrypted phone buzzes seventy times an hour with urgent, high-stakes notifications regarding hostile corporate takeovers, regulatory subpoenas, aggressive securities litigation, and midnight private equity capital calls, true luxury is no longer a chartered superyacht anchored in Monaco or a Gulfstream G800 private jet crossing continents. Ultimate luxury has mutated into the absolute, unadulterated, and terrifying absence of human sound. The global elite are paying exorbitant sums to disappear entirely into engineered acoustic vacuums where digital silence reigns supreme.",
+                        "We recently visited an ultra-secret subterranean alpine lodge burrowed deeply beneath an unmapped granite peak in the Swiss Engadin. Accessible exclusively via a private funicular tunnel carved through three kilometers of solid rock, this secluded retreat features double-foiled military-grade Faraday cages integrated directly into every bedroom wall, completely severing guests from cellular networks, Wi-Fi beacons, and satellite tracking systems. The air inside is filtered for purity down to zero particulates, and the temperature is maintained with monastic precision.",
+                        "Here, time slows down to a glacial, meditative crawl. You soak silently in a geothermal pool fed by subterranean mineral springs while staring out at jagged, snow-swept alpine fields through an electrochromic glass wall that automatically filters out eighty percent of blinding natural light. Meals are prepared by a Michelin-three-star chef who communicates exclusively via handwritten notes left neatly on brushed silver trays, ensuring that your cognitive bandwidth is never once assaulted by human speech.",
+                        "This is the ultimate, inevitable evolution of executive wellness: a radical monastic fortress where you willingly pay fifty thousand dollars per night to remember what your own unhurried thoughts actually sound like when nobody on Earth is demanding an immediate return on investment."
+                    ],
+                    es: [
+                        "Cuando tu teléfono cifrado vibra setenta veces por hora con notificaciones urgentes y de alto riesgo sobre adquisiciones corporativas hostiles, citaciones regulatorias, litigios agresivos de valores y llamadas de capital de private equity a medianoche, el verdadero lujo ya no es un superyate fletado anclado en Mónaco o un jet privado Gulfstream G800 cruzando continentes. El lujo supremo se ha transformado en la ausencia absoluta, pura y aterrorizante de sonido humano. La élite global está pagando sumas exorbitantes para desaparecer por completo en vacíos acústicos diseñados donde el silencio digital reina supremo.",
+                        "Recientemente visitamos un refugio alpino subterráneo ultra secreto excavado profundamente debajo de un pico de granito no mapeado en la Engadina suiza. Accesible exclusivamente a través de un túnel de funicular privado tallado a través de tres kilómetros de roca sólida, este retiro aislado cuenta con jaulas de Faraday de grado militar de doble hoja integradas directamente en cada pared del dormitorio, aislando por completo a los huéspedes de las redes celulares, las balizas Wi-Fi y los sistemas de rastreo satelital. El aire en el interior se filtra para lograr una pureza de hasta cero partículas, y la temperatura se mantiene con precisión monástica.",
+                        "Aquí, el tiempo se ralentiza hasta un ritmo glacial y meditativo. Te sumerges en silencio en una piscina geotérmica alimentada por manantiales minerales subterráneos mientras contemplas campos alpinos escarpados y barridos por la nieve a través de una pared de vidrio electrocrómico que filtra automáticamente el ochenta por ciento de la luz natural cegadora. Las comidas son preparadas por un chef con tres estrellas Michelin que se comunica exclusivamente mediante notas escritas a mano dejadas ordenadamente en bandejas de plata cepillada, asegurando que tu ancho de banda cognitivo nunca sea asaltado por el habla humana.",
+                        "Esta es la evolución definitiva e inevitable del bienestar ejecutivo: una fortaleza monástica radical donde pagas voluntariamente cincuenta mil dólares por noche para recordar cómo suenan realmente tus propios pensamientos sin prisas cuando nadie en la Tierra exige un retorno de inversión inmediato."
+                    ],
+                    zh: [
+                        "当你的加密手机每小时因关于恶意收购、监管传票、激进证券诉讼和午夜私募资本催缴的紧急高风险通知震动七十次时，真正的奢华已不再是停泊在摩纳哥租来的超级游艇，或是穿梭各大洲的湾流G800私人飞机。终极奢华已经演变成对人类声音绝对、纯粹且令人发指的剥离。全球精英正支付着天价费用，彻底消失在数字寂静至高无上的定制声学真空中。",
+                        "我们最近探访了一处位于瑞士恩加丁山脉一处未标绘花岗岩峰底部的绝密地下高山隐修所。这里只能通过一条穿透三公里坚实岩石的私人缆车隧道进入，这座隐秘的休憩之所将军用级双层法拉第笼直接融入每一间卧室的墙壁中，彻底将客人与蜂窝网络、Wi-Fi信号塔和卫星追踪系统隔绝。室内的空气经过净化，微粒接近于零，温度则以苦修般的精确度保持恒定。",
+                        "在这里，时间慢得宛如冰川般的冥想漂移。你静静地泡在由地下矿泉加热的地热池中，透过电化学玻璃墙（可自动过滤80%的刺眼自然光）凝视着参差不齐、白雪皑皑的高山原野。餐食由米其林三星主厨主理，但他只通过整齐放在拉丝银盘上的手写便签与你沟通，确保你的认知带宽绝不会受到人类语言的侵扰。",
+                        "这是行政级身心健康的终极且不可避免的进化：一座激进的修道院式堡垒，你心甘情愿地每晚支付五万美元，只为了在地球上没有人向你催讨投资回报率时，重新回想起自己不紧不慢的思绪究竟是什么声音。"
+                    ]
+                }
+            }
+        };
+
+        function selectGlobalLanguage(lang) {
+            currentLang = lang;
+            const gate = document.getElementById('splash-gate');
+            const app = document.getElementById('main-app');
+
+            gate.classList.add('opacity-0');
+            setTimeout(() => {
+                gate.style.display = 'none';
+                app.classList.remove('hidden');
+                setTimeout(() => {
+                    app.classList.remove('opacity-0');
+                    applyLanguage(currentLang);
+                }, 50);
+            }, 700);
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            applyLanguage(lang);
+        }
+
+        function applyLanguage(lang) {
+            ['en', 'es', 'zh'].forEach(l => {
+                const btn = document.getElementById(`btn-${l}`);
+                if(btn) {
+                    if(l === lang) {
+                        btn.className = "text-hera-gold font-semibold uppercase px-1";
+                    } else {
+                        btn.className = "text-hera-muted uppercase hover:text-hera-gold px-1";
+                    }
+                }
+            });
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function openArticle(articleId) {
+            currentArticleId = articleId;
+            const article = articleContentDB[articleId];
+            if(!article) return;
+
+            document.getElementById('modal-category').innerText = article.category[currentLang];
+            document.getElementById('modal-readtime').innerText = article.readTime[currentLang];
+            document.getElementById('modal-article-title').innerText = article.title[currentLang];
+            document.getElementById('modal-article-author').innerText = article.author[currentLang];
+            document.getElementById('modal-article-img').src = article.img;
+
+            const bodyContainer = document.getElementById('modal-article-body');
+            bodyContainer.innerHTML = '';
+            article.body[currentLang].forEach(paragraph => {
+                const p = document.createElement('p');
+                p.className = "mb-6 text-hera-ivory font-light leading-relaxed";
+                p.innerText = paragraph;
+                bodyContainer.appendChild(p);
+            });
+
+            updateArticleLangPills(currentLang);
+
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function setArticleLang(lang) {
+            currentLang = lang;
+            updateArticleLangPills(lang);
+            if(currentArticleId) {
+                openArticle(currentArticleId);
+            }
+            applyLanguage(lang);
+        }
+
+        function updateArticleLangPills(lang) {
+            ['en', 'es', 'zh'].forEach(l => {
+                const btn = document.getElementById(`art-lang-${l}`);
+                if(btn) {
+                    if(l === lang) {
+                        btn.className = "text-hera-gold font-semibold uppercase px-1";
+                    } else {
+                        btn.className = "text-hera-muted uppercase hover:text-hera-gold px-1";
+                    }
+                }
+            });
+        }
+
+        function openModal() {
+            document.getElementById('subModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('subModal').classList.add('hidden');
+            document.getElementById('successMsg').classList.add('hidden');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            document.getElementById('successMsg').classList.remove('hidden');
+            setTimeout(() => {
+                closeModal();
+            }, 2500);
+        }
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
