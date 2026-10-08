@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        
+  <!-- URL Principal (Punto de entrada de la SPA) -->
+  <url>
+    <loc>https://heramagazine.github.io/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Declaración de los 3 idiomas para Google (hreflang) -->
+    <xhtml:link rel="alternate" hreflang="es" href="https://heramagazine.github.io/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://heramagazine.github.io/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://heramagazine.github.io/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://heramagazine.github.io/" />
+
+    <!-- Imagen principal / Portada para Google Imágenes -->
+    <image:image>
+      <image:loc>https://heramagazine.github.io/assets/images/portada.jpg</image:loc>
+      <image:title>Hera Magazine - Capital, Architecture, Velocity, Horizon</image:title>
+    </image:image>
+  </url>
+
+  <!-- Enlaces a las secciones clave con anclajes dentro de la SPA -->
+  <url>
+    <loc>https://heramagazine.github.io/#capital</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://heramagazine.github.io/#architecture</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://heramagazine.github.io/#velocity</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://heramagazine.github.io/#horizon</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+</urlset>
